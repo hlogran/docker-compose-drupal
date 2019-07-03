@@ -1,0 +1,14 @@
+version: '2'
+volumes:
+  drupal-sites:
+services:
+  drupal:
+    image: drupal:latest
+    volumes: 
+      - drupal-sites:/temporary/sites
+    ports:
+      - 8080:80
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: pwd
